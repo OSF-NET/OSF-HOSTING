@@ -1,3 +1,15 @@
+function typeWriter(text, elementId, speed = 30) {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+  element.textContent = "";
+  let i = 0;
+  const interval = setInterval(() => {
+    element.textContent += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, speed);
+}
+
 function generateFact() {
   const facts = [
     "Honey never spoils.",
@@ -21,6 +33,8 @@ function generateFact() {
     "The longest hiccup spree lasted 68 years.",
     "There's a planet where it rains molten glass sideways."
   ];
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-  document.getElementById("fact").textContent = fact;
+
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  const selectedFact = facts[randomIndex];
+  typeWriter(selectedFact, "fact");
 }
