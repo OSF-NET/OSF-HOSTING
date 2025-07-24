@@ -1,0 +1,2 @@
+function generateFact() {
+  const facts = 
