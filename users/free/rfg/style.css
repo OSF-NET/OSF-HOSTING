@@ -1,4 +1,20 @@
-/* Reset and base styles */
+/* ================================
+   🌈 Theme Variables
+================================ */
+:root {
+  --font-main: 'Segoe UI', sans-serif;
+  --color-bg-start: #1f1c2c;
+  --color-bg-end: #928dab;
+  --color-accent: #ff6f61;
+  --color-accent-hover: #ff3b2e;
+  --color-text: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(12px);
+}
+
+/* ================================
+   🔧 Reset & Base Styles
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -6,22 +22,24 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: var(--font-main);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  color: var(--color-text);
   position: relative;
-  color: #fff;
 }
 
-/* Animated gradient background */
+/* ================================
+   🌌 Animated Background
+================================ */
 .background {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #1f1c2c, #928dab, #2c3e50, #34495e);
+  background: linear-gradient(-45deg, var(--color-bg-start), var(--color-bg-end), #2c3e50, #34495e);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   z-index: -1;
@@ -33,14 +51,30 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Glassmorphism container */
+/* ================================
+   🧊 Glassmorphism Container
+================================ */
 .container {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
   border-radius: 20px;
   padding: 2.5rem;
   text-align: center;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
   max-width: 600px;
   width: 90%;
-  animation
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================
+   📝 Heading & Fact Text
+================================ */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color
